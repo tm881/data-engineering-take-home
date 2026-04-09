@@ -1,0 +1,26 @@
+sid,pid,asset_id,bundle_id,evt_dttm,usage_date,mb,cc1,cc2,tech_raw,tech_clean,src_nm,profile_resolution,plan_resolution,rate_resolution,rate_per_mb_usd,cost_usd
+1,100,1000.0,2000.0,2026-01-10 08:00:00,2026-01-10,100.0,310.0,260,LTE,4G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.01,1.0
+13,100,1001.0,2000.0,2026-01-15 12:00:00,2026-01-15,12.0,310.0,260,LTE,4G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.01,0.12
+2,100,1001.0,2000.0,2026-01-16 08:00:00,2026-01-16,55.0,310.0,260,4g,4G,usage_3.parquet,profile_match,plan_match,exact_geo_exact_tech,0.01,0.55
+14,100,1001.0,2001.0,2026-01-20 00:00:00,2026-01-20,18.0,310.0,260,LTE,4G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.008,0.14400000000000002
+3,100,1001.0,2001.0,2026-01-21 08:00:00,2026-01-21,75.0,310.0,260,5g,5G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.012,0.9
+4,101,1002.0,2000.0,2026-01-05 10:00:00,2026-01-05,20.0,310.0,260,lte,4G,usage_1.parquet,profile_match,plan_overlap_resolved_reason_rank,exact_geo_exact_tech,0.01,0.2
+16,101,1002.0,2000.0,2026-01-07 15:00:00,2026-01-07,25.0,310.0,260,5g,5G,usage_1.parquet,profile_match,plan_overlap_resolved_reason_rank,exact_geo_exact_tech,0.018,0.44999999999999996
+23,101,1002.0,2000.0,2026-01-08 13:00:00,2026-01-08,19.0,310.0,260,,,usage_2.parquet,profile_match,plan_overlap_resolved_reason_rank,exact_geo_fallback_tech,0.015,0.285
+28,101,1002.0,2000.0,2026-01-09 12:00:00,2026-01-09,15.0,,260,CDMA,3G,usage_2.parquet,profile_match,plan_overlap_resolved_reason_rank,missing_cc1,,
+29,101,1002.0,2000.0,2026-01-09 13:00:00,2026-01-09,15.0,310.0,99999,GSM,3G,usage_2.parquet,profile_match,plan_overlap_resolved_reason_rank,no_geo_rate_match,,
+5,102,1003.0,2002.0,2026-01-17 12:00:00,2026-01-17,40.0,234.0,15,LTE,4G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.03,1.2
+15,102,1004.0,2002.0,2026-01-18 00:00:00,2026-01-18,33.0,234.0,15,LTE,4G,usage_1.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.025,0.8250000000000001
+6,102,1004.0,2002.0,2026-01-19 12:00:00,2026-01-19,45.0,234.0,15,4G,4G,usage_1.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.025,1.125
+25,102,1004.0,2002.0,2026-01-19 16:00:00,2026-01-19,11.0,234.0,15,lte,4G,usage_2.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.025,0.275
+7,103,1005.0,2000.0,2026-01-06 09:00:00,2026-01-06,10.0,310.0,260,LTE,4G,usage_1.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.01,0.1
+21,103,1005.0,2000.0,2026-01-24 18:00:00,2026-01-24,16.0,310.0,260,LTE,4G,usage_2.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.01,0.16
+22,103,1005.0,2001.0,2026-01-25 00:00:00,2026-01-25,17.0,310.0,260,LTE,4G,usage_2.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.008,0.136
+17,103,1005.0,2001.0,2026-01-26 08:00:00,2026-01-26,14.0,310.0,260,5G,5G,usage_1.parquet,overlap_resolved_latest_window,plan_match,exact_geo_exact_tech,0.012,0.168
+8,104,1006.0,2000.0,2026-01-10 12:00:00,2026-01-10,5.0,310.0,260,LTE,4G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.01,0.05
+9,104,,,2026-01-11 12:00:00,2026-01-11,5.0,310.0,260,LTE,4G,usage_1.parquet,no_profile_match,no_asset,no_bundle,,
+10,105,1007.0,2003.0,2026-01-13 14:00:00,2026-01-13,60.0,310.0,410,NR,5G,usage_1.parquet,profile_match,plan_match,exact_geo_exact_tech,0.05,3.0
+24,105,1007.0,2003.0,2026-01-13 15:00:00,2026-01-13,9.0,310.0,410,5g,5G,usage_2.parquet,profile_match,plan_match,exact_geo_exact_tech,0.05,0.45
+18,105,1007.0,2003.0,2026-01-14 08:00:00,2026-01-14,8.0,310.0,999,NR,5G,usage_1.parquet,profile_match,plan_match,no_geo_rate_match,,
+11,106,1008.0,,2026-01-26 09:00:00,2026-01-26,30.0,310.0,260,LTE,4G,usage_1.parquet,profile_match,no_plan_match,no_bundle,,
+12,999,,,2026-01-14 10:00:00,2026-01-14,22.0,310.0,260,LTE,4G,usage_1.parquet,no_profile_match,no_asset,no_bundle,,
