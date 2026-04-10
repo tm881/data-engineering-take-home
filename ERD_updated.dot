@@ -1,0 +1,207 @@
+digraph telecom_redesign {
+    graph [
+        rankdir=LR,
+        splines=polyline,
+        nodesep=0.5,
+        ranksep=0.9,
+        pad=0.2,
+        bgcolor="white",
+        fontname="Helvetica"
+    ];
+
+    node [
+        shape=plain,
+        fontname="Helvetica"
+    ];
+
+    edge [
+        color="#4b5563",
+        arrowsize=0.8,
+        penwidth=1.1
+    ];
+
+    subgraph cluster_raw {
+        label="Raw Layer";
+        color="#cbd5e1";
+        style="rounded";
+        fontsize=18;
+
+        raw_usage_event [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dbeafe"><b>raw_usage_event</b></td></tr>
+                <tr><td align="left">PK raw_usage_event_id</td></tr>
+                <tr><td align="left">sid</td></tr>
+                <tr><td align="left">pid</td></tr>
+                <tr><td align="left">evt_dttm</td></tr>
+                <tr><td align="left">mb</td></tr>
+                <tr><td align="left">cc1, cc2</td></tr>
+                <tr><td align="left">tech</td></tr>
+                <tr><td align="left">source_name, source_load_dttm</td></tr>
+            </table>
+        >];
+
+        raw_profile_installation [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dbeafe"><b>raw_profile_installation</b></td></tr>
+                <tr><td align="left">PK raw_profile_installation_id</td></tr>
+                <tr><td align="left">pid</td></tr>
+                <tr><td align="left">asset_id</td></tr>
+                <tr><td align="left">beg_dttm, end_dttm</td></tr>
+                <tr><td align="left">src_cd, crt_dttm</td></tr>
+            </table>
+        >];
+
+        raw_sim_card_plan_history [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dbeafe"><b>raw_sim_card_plan_history</b></td></tr>
+                <tr><td align="left">PK raw_sim_card_plan_history_id</td></tr>
+                <tr><td align="left">asset_id</td></tr>
+                <tr><td align="left">bundle_id</td></tr>
+                <tr><td align="left">eff_dttm, x_dttm</td></tr>
+                <tr><td align="left">why_cd, upd_dttm</td></tr>
+            </table>
+        >];
+
+        raw_rate_card [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dbeafe"><b>raw_rate_card</b></td></tr>
+                <tr><td align="left">PK raw_rate_card_id</td></tr>
+                <tr><td align="left">bundle_id</td></tr>
+                <tr><td align="left">cc1, cc2</td></tr>
+                <tr><td align="left">tech_cd</td></tr>
+                <tr><td align="left">beg_dttm, end_dttm</td></tr>
+                <tr><td align="left">rt_amt, curr_cd, prio_nbr</td></tr>
+            </table>
+        >];
+    }
+
+    subgraph cluster_curated {
+        label="Curated Layer";
+        color="#cbd5e1";
+        style="rounded";
+        fontsize=18;
+
+        dim_profile [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dcfce7"><b>dim_profile</b></td></tr>
+                <tr><td align="left">PK profile_id</td></tr>
+                <tr><td align="left">UK profile_nk</td></tr>
+            </table>
+        >];
+
+        dim_sim_card [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dcfce7"><b>dim_sim_card</b></td></tr>
+                <tr><td align="left">PK sim_card_id</td></tr>
+                <tr><td align="left">UK sim_card_nk</td></tr>
+            </table>
+        >];
+
+        dim_bundle [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dcfce7"><b>dim_bundle</b></td></tr>
+                <tr><td align="left">PK bundle_id</td></tr>
+                <tr><td align="left">UK bundle_nk</td></tr>
+            </table>
+        >];
+
+        dim_radio_technology [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dcfce7"><b>dim_radio_technology</b></td></tr>
+                <tr><td align="left">PK tech_id</td></tr>
+                <tr><td align="left">UK raw_tech_cd</td></tr>
+                <tr><td align="left">normalized_generation</td></tr>
+            </table>
+        >];
+
+        dim_network [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#dcfce7"><b>dim_network</b></td></tr>
+                <tr><td align="left">PK network_id</td></tr>
+                <tr><td align="left">UK (cc1, cc2)</td></tr>
+            </table>
+        >];
+
+        bridge_profile_sim_card [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#fde68a"><b>bridge_profile_sim_card</b></td></tr>
+                <tr><td align="left">PK bridge_profile_sim_card_id</td></tr>
+                <tr><td align="left">FK profile_id</td></tr>
+                <tr><td align="left">FK sim_card_id</td></tr>
+                <tr><td align="left">valid_from, valid_to</td></tr>
+                <tr><td align="left">src_cd, created_at</td></tr>
+            </table>
+        >];
+
+        bridge_sim_card_bundle [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#fde68a"><b>bridge_sim_card_bundle</b></td></tr>
+                <tr><td align="left">PK bridge_sim_card_bundle_id</td></tr>
+                <tr><td align="left">FK sim_card_id</td></tr>
+                <tr><td align="left">FK bundle_id</td></tr>
+                <tr><td align="left">valid_from, valid_to</td></tr>
+                <tr><td align="left">reason_cd, reason_rank, updated_at</td></tr>
+            </table>
+        >];
+
+        fact_rate_rule [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#fecaca"><b>fact_rate_rule</b></td></tr>
+                <tr><td align="left">PK rate_rule_id</td></tr>
+                <tr><td align="left">FK bundle_id</td></tr>
+                <tr><td align="left">FK network_id</td></tr>
+                <tr><td align="left">FK tech_id</td></tr>
+                <tr><td align="left">valid_from, valid_to</td></tr>
+                <tr><td align="left">rate_per_mb_usd, priority_nbr</td></tr>
+                <tr><td align="left">is_fallback</td></tr>
+            </table>
+        >];
+
+        fact_usage_event [label=<
+            <table border="1" cellborder="0" cellspacing="0" cellpadding="6">
+                <tr><td bgcolor="#fecaca"><b>fact_usage_event</b></td></tr>
+                <tr><td align="left">PK usage_event_id</td></tr>
+                <tr><td align="left">sid</td></tr>
+                <tr><td align="left">FK profile_id</td></tr>
+                <tr><td align="left">FK sim_card_id</td></tr>
+                <tr><td align="left">FK bundle_id</td></tr>
+                <tr><td align="left">FK network_id</td></tr>
+                <tr><td align="left">FK tech_id</td></tr>
+                <tr><td align="left">evt_dttm, ld_dttm, mb</td></tr>
+                <tr><td align="left">rate_rule_id, cost_usd</td></tr>
+                <tr><td align="left">resolution statuses</td></tr>
+            </table>
+        >];
+    }
+
+    raw_usage_event -> dim_profile [label="pid -> profile_nk", fontsize=10];
+    raw_profile_installation -> dim_profile [label="pid -> profile_nk", fontsize=10];
+    raw_profile_installation -> dim_sim_card [label="asset_id -> sim_card_nk", fontsize=10];
+    raw_sim_card_plan_history -> dim_sim_card [label="asset_id -> sim_card_nk", fontsize=10];
+    raw_sim_card_plan_history -> dim_bundle [label="bundle_id -> bundle_nk", fontsize=10];
+    raw_rate_card -> dim_bundle [label="bundle_id -> bundle_nk", fontsize=10];
+    raw_rate_card -> dim_network [label="(cc1,cc2)", fontsize=10];
+    raw_rate_card -> dim_radio_technology [label="tech_cd -> raw_tech_cd", fontsize=10];
+    raw_usage_event -> dim_network [label="(cc1,cc2)", fontsize=10];
+    raw_usage_event -> dim_radio_technology [label="tech -> raw_tech_cd", fontsize=10];
+
+    dim_profile -> bridge_profile_sim_card;
+    dim_sim_card -> bridge_profile_sim_card;
+
+    dim_sim_card -> bridge_sim_card_bundle;
+    dim_bundle -> bridge_sim_card_bundle;
+
+    dim_bundle -> fact_rate_rule;
+    dim_network -> fact_rate_rule;
+    dim_radio_technology -> fact_rate_rule;
+
+    dim_profile -> fact_usage_event;
+    dim_sim_card -> fact_usage_event;
+    dim_bundle -> fact_usage_event;
+    dim_network -> fact_usage_event;
+    dim_radio_technology -> fact_usage_event;
+    fact_rate_rule -> fact_usage_event [label="applied rule", fontsize=10];
+
+    bridge_profile_sim_card -> fact_usage_event [style=dashed, color="#2563eb", label="resolve active SIM at evt_dttm", fontsize=10];
+    bridge_sim_card_bundle -> fact_usage_event [style=dashed, color="#2563eb", label="resolve active bundle at evt_dttm", fontsize=10];
+}

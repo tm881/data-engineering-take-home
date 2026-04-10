@@ -1,4 +1,0 @@
-pandas==2.3.3
-pyarrow==21.0.0
-matplotlib==3.9.4
-pillow==11.3.0
