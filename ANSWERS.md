@@ -18,9 +18,9 @@ For the notebook, select the registered kernel:
 
 ### Create a simple line chart showing Total Usage (MB) per day.
 
-- Chart file: [`total_usage_per_day.png`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/total_usage_per_day.png)
-- Source data: [`outputs/daily_usage_mb.csv`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/outputs/daily_usage_mb.csv)
-- Walkthrough: [`telecom_usage_analysis.ipynb`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/telecom_usage_analysis.ipynb)
+- Chart file: [`total_usage_per_day.png`](total_usage_per_day.png)
+- Source data: [`outputs/daily_usage_mb.csv`](outputs/daily_usage_mb.csv)
+- Walkthrough: [`telecom_usage_analysis.ipynb`](telecom_usage_analysis.ipynb)
 
 ### Which `sim_card_id` had the highest total usage?
 
@@ -38,12 +38,12 @@ For the notebook, select the registered kernel:
 ### What is the cost of all data used in the linked data?
 
 - Answer: `$11.138 USD`
-- Linked output: [`outputs/linked_usage_events.csv`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/outputs/linked_usage_events.csv)
+- Linked output: [`outputs/linked_usage_events.csv`](outputs/linked_usage_events.csv)
 
 ### Review the provided ERD and describe how you would redesign the database to make the data cleaner, more reliable and useful.
 
-- Updated ERD: [`ERD_updated.png`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/ERD_updated.png)
-- SQL model definition: [`redesign.sql`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/redesign.sql)
+- Updated ERD: [`ERD_updated.png`](ERD_updated.png)
+- SQL model definition: [`redesign.sql`](redesign.sql)
 
 ## Quick Answers
 
@@ -167,9 +167,9 @@ Result:
 
 ## Redesign Summary
 
-The redesign in [`redesign.sql`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/redesign.sql) separates raw ingestion from curated analytical tables.
+The redesign in [`redesign.sql`](redesign.sql) separates raw ingestion from curated analytical tables.
 
-I also included an updated diagram version of the redesign in [`ERD_updated.png`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/ERD_updated.png).
+I also included an updated diagram version of the redesign in [`ERD_updated.png`](ERD_updated.png).
 
 Key changes:
 
@@ -199,7 +199,7 @@ Risks and tradeoffs:
 
 Notebook workflow:
 
-- Open [`telecom_usage_analysis.ipynb`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/telecom_usage_analysis.ipynb)
+- Open [`telecom_usage_analysis.ipynb`](telecom_usage_analysis.ipynb)
 - Run the notebook top to bottom using the `.venv` kernel
 
 Script workflow:
@@ -211,12 +211,12 @@ python telecom_usage_analysis.py
 
 Primary project files:
 
-- [`telecom_usage_analysis.ipynb`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/telecom_usage_analysis.ipynb)
-- [`telecom_usage_analysis.py`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/telecom_usage_analysis.py)
-- [`utils/analysis_helpers.py`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/utils/analysis_helpers.py)
-- [`utils/dataframe_cleaner.py`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/utils/dataframe_cleaner.py)
-- [`utils/table_cleaning.py`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/utils/table_cleaning.py)
+- [`telecom_usage_analysis.ipynb`](telecom_usage_analysis.ipynb)
+- [`telecom_usage_analysis.py`](telecom_usage_analysis.py)
+- [`utils/analysis_helpers.py`](utils/analysis_helpers.py)
+- [`utils/dataframe_cleaner.py`](utils/dataframe_cleaner.py)
+- [`utils/table_cleaning.py`](utils/table_cleaning.py)
 
 `telecom_usage_analysis.py` is the sequential script version of the analysis, while `telecom_usage_analysis.ipynb` is the walkthrough version.
 
-The redesign proposal is documented in [`redesign.sql`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/redesign.sql) and visualized in [`ERD_updated.png`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/ERD_updated.png).
+The redesign proposal is documented in [`redesign.sql`](redesign.sql) and visualized in [`ERD_updated.png`](ERD_updated.png).

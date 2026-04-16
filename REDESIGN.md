@@ -255,7 +255,7 @@ There is also one important future enhancement:
 
 The redesign is represented in two forms:
 
-- diagram: [`ERD_updated.png`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/ERD_updated.png)
-- SQL model: [`redesign.sql`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/redesign.sql)
+- diagram: [`ERD_updated.png`](ERD_updated.png)
+- SQL model: [`redesign.sql`](redesign.sql)
 
 The diagram is useful for explaining the architecture quickly, and the SQL is useful for showing the concrete implementation details.

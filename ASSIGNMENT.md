@@ -1,5 +1,5 @@
 Submission note:
-The original take-home prompt is preserved below. Reviewer guidance for this submission is in [`README.md`](/Users/taylormonticelli/Documents/company_tests/data-engineering-take-home/README.md).
+The original take-home prompt is preserved below. Reviewer guidance for this submission is in [`README.md`](README.md).
 
 Summary:
 Leadership has expressed an interest in getting a better summary of our usage data in our system. The existing data structures are old, and you’ll need to get them the information while identifying a path forward to make the data clean, reliable and useful.
